@@ -4,9 +4,12 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "client": "cd frontend && yarn start",
+    "frontend": "cd frontend && yarn start",
     "backend": "cd backend && yarn start",
-    "dev": "concurrently \"yarn backend\" \"yarn client\""
+    "backend-install": "cd backend && yarn",
+    "frontend-install": "cd frontend && yarn",
+    "dev": "concurrently \"yarn backend\" \"yarn frontend\"",
+    "install-dev": "concurrently \"yarn backend-install\" \"yarn client-install\""
   },
   "dependencies": {
     "concurrently": "^7.2.2"
