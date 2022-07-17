@@ -1,0 +1,14 @@
+{
+  "name": "new-charges",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "client": "cd frontend && yarn start",
+    "backend": "cd backend && yarn start",
+    "dev": "concurrently \"yarn backend\" \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
