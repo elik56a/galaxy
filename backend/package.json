@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch './src/**/*.ts' --exec ts-node index.ts",
+    "start": "nodemon index.ts",
     "build": "tsc",
     "test": "jest --coverage",
     "test:watch": "yarn run test -- --watchAll",

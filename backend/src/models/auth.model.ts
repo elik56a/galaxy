@@ -1,12 +1,37 @@
-import { IAuthModel } from "../typescript/models.typescript";
+import fastifyPlugin from 'fastify-plugin';
 
-const authModel: IAuthModel = {
+import { IServerInstance } from '../typescript/main.typescript';
+import { IAuthModel } from '../typescript/models/auth-model.typescript';
+import { AppLayersNames } from '../typescript/enums.typescript';
+import { createGlobalPlugin } from '../utils/fastify.util';
+
+const createAuthModel = (server: IServerInstance): IAuthModel => ({
   login: async (password, userName) => {
-    // THIS IS AN EXMAPLE - LIKE GET DATA FROM DB
-    return new Promise<boolean>(resolve => {
-      setTimeout(() => resolve(true), 2000);
-    });
+    try {
+      // THIS IS AN EXAMPLE - LIKE GET DATA FROM DB
+      return new Promise(resolve => {
+        setTimeout(() => resolve(true), 2000);
+      });
+    } catch (e) {
+      console.error(e);
+    }
   },
+  forgetPassword: async (userName, email) => {
+    try {
+      return new Promise(resolve => {
+        setTimeout(() => resolve(true), 2000);
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  },
+});
+
+const authModel = (server: IServerInstance, options, done) => {
+  return createGlobalPlugin(server, done, AppLayersNames.Models, {
+    ...server[AppLayersNames.Models],
+    auth: createAuthModel(server),
+  });
 };
 
-export default authModel;
+export default fastifyPlugin(authModel);

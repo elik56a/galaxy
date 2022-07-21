@@ -1,4 +1,4 @@
-export const swaggerConfig: Record<string, any> = {
+export const SWAGGER_OPTIONS: Record<string, any> = {
   routePrefix: '/docs',
   swagger: {
     info: {
@@ -38,11 +38,11 @@ export const swaggerConfig: Record<string, any> = {
     deepLinking: false,
   },
   uiHooks: {
-    onRequest: function (request, reply, next) {
-      next();
+    onRequest: function (request, reply, done) {
+      done();
     },
-    preHandler: function (request, reply, next) {
-      next();
+    preHandler: function (request, reply, done) {
+      done();
     },
   },
   staticCSP: true,

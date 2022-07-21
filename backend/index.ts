@@ -8,7 +8,7 @@ const start: () => Promise<void> = async () => {
     await server.listen({ port: PORT });
   } catch (err) {
     console.error(err);
-    server.log.error(err);
+    server?.log.error(err);
     process.exit(1);
   }
 };

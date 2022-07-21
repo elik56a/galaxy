@@ -1,21 +1,23 @@
-import { FastifyInstance } from 'fastify';
+import { AUTH_ROUTES } from '../config/routes.config';
+import {
+  postForgetPasswordSchema,
+  postLoginSchema,
+} from '../schema/auth-route.schema';
+import { IServerInstance } from '../typescript/main.typescript';
 
-import authController from '../controllers/auth.controller';
-import { postLoginSchema } from '../schema/auth-route.schema';
-
-export default async function authRoute(
-  server: FastifyInstance,
-  options,
-  done
-) {
-  server.post('/auth/login', postLoginSchema , authController.login);
-
-  // server.post('/login', postHealthSchema, async (req, replay) => {
-  //   const { name } = req.body;
-  //   replay.send({
-  //     name: name + 'fdas',
-  //   });
-  // });
+const authRoute = (server: IServerInstance, options, done) => {
+  server.post(
+    AUTH_ROUTES.LOGIN,
+    postLoginSchema,
+    server.controllers.auth.login
+  );
+  server.post(
+    AUTH_ROUTES.FORGET_PASSWORD,
+    postForgetPasswordSchema,
+    server.controllers.auth.forgetPassword
+  );
 
   done();
-}
+};
+
+export default authRoute;

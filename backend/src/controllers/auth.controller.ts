@@ -1,16 +1,44 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
 
-import authModel from '../models/auth.model';
-import { IAuthController } from '../typescript/contollers.typescript';
+import { IServerInstance } from '../typescript/main.typescript';
+import { IAuthController } from '../typescript/controllers/auth-contoller.typescript';
+import { AppLayersNames } from '../typescript/enums.typescript';
+import { createGlobalPlugin } from '../utils/fastify.util';
 
-const authController: IAuthController = {
-  login: async (req, replay) => {
-    const { userName, password } = req.body;
-    const isValid = await authModel.login(userName, password); //@ access DB via model
-    return replay.status(200).send({
-      isValid,
-    });
+const createAuthController = (server: IServerInstance): IAuthController => ({
+  login: async req => {
+    try {
+      const { userName, password } = req.body;
+      const isValid = await server.models.auth.login(userName, password);
+
+      return {
+        isValid,
+      };
+    } catch (e) {
+      console.error(e);
+    }
   },
-};
+  forgetPassword: async req => {
+    try {
+      const { userName, email } = req.body;
+      const isSuccess = await server.models.auth.forgetPassword(
+        userName,
+        email
+      );
 
-export default authController;
+      return {
+        isSuccess,
+      };
+    } catch (e) {
+      console.error(e);
+    }
+  },
+});
+
+const authController = (server: IServerInstance, options, done) =>
+  createGlobalPlugin(server, done, AppLayersNames.Controllers, {
+    ...server[AppLayersNames.Controllers],
+    auth: createAuthController(server),
+  });
+
+export default fastifyPlugin(authController);
