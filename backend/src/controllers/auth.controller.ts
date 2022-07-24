@@ -2,7 +2,7 @@ import fastifyPlugin from 'fastify-plugin';
 
 import { IServerInstance } from '../typescript/main.typescript';
 import { IAuthController } from '../typescript/controllers/auth-contoller.typescript';
-import { AppLayersNames } from '../typescript/enums.typescript';
+import { ServerLayers } from '../typescript/enums.typescript';
 import { createGlobalPlugin } from '../utils/fastify.util';
 
 const createAuthController = (server: IServerInstance): IAuthController => ({
@@ -36,8 +36,8 @@ const createAuthController = (server: IServerInstance): IAuthController => ({
 });
 
 const authController = (server: IServerInstance, options, done) =>
-  createGlobalPlugin(server, done, AppLayersNames.Controllers, {
-    ...server[AppLayersNames.Controllers],
+  createGlobalPlugin(server, done, ServerLayers.Controllers, {
+    ...server[ServerLayers.Controllers],
     auth: createAuthController(server),
   });
 

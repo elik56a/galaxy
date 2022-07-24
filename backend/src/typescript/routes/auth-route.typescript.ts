@@ -14,7 +14,7 @@ export interface IReplayLogin {
   isValid: boolean;
 }
 
-// forgerPassword
+// forget password
 export interface IRequestForgetPassword extends FastifyRequest {
   body: IForgetPasswordBody;
 }

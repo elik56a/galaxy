@@ -1,3 +1,5 @@
+import { API_PORT } from './app.config';
+
 export const SWAGGER_OPTIONS: Record<string, any> = {
   routePrefix: '/docs',
   swagger: {
@@ -6,7 +8,7 @@ export const SWAGGER_OPTIONS: Record<string, any> = {
       description: 'New Charges API DOCS ',
       version: '1.0.0',
     },
-    host: 'localhost:3000',
+    host: `localhost:${API_PORT}`,
     schemes: ['http'],
     consumes: ['application/json'],
     produces: ['application/json'],
@@ -48,4 +50,17 @@ export const SWAGGER_OPTIONS: Record<string, any> = {
   staticCSP: true,
   transformStaticCSP: header => header,
   exposeRoute: true,
+};
+
+export const LOGGER_OPTIONS: Record<string, any> = {
+  logger: {
+    level: 'error',
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        translateTime: 'HH:MM:ss Z',
+        ignore: 'pid,hostname',
+      },
+    },
+  },
 };

@@ -1,10 +1,10 @@
-export enum AppLayersNames {
+export enum ServerLayers {
   Routes = 'routes',
   Controllers = 'controllers',
   Models = 'models',
 }
 
-export enum AppEntitiesName {
+export enum ServerEntities {
   Auth = 'auth',
   User = 'user',
 }

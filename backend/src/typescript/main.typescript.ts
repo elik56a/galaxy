@@ -2,13 +2,13 @@ import { FastifyInstance } from 'fastify';
 
 import { IAuthController } from './controllers/auth-contoller.typescript';
 import { IAuthModel } from './models/auth-model.typescript';
-import { AppEntitiesName, AppLayersNames } from './enums.typescript';
+import { ServerEntities, ServerLayers } from './enums.typescript';
 
 export interface IServerInstance extends FastifyInstance {
-  [AppLayersNames.Controllers]: {
-    [AppEntitiesName.Auth]: IAuthController;
+  [ServerLayers.Controllers]: {
+    [ServerEntities.Auth]: IAuthController;
   };
-  [AppLayersNames.Models]: {
-    [AppEntitiesName.Auth]: IAuthModel;
+  [ServerLayers.Models]: {
+    [ServerEntities.Auth]: IAuthModel;
   };
 }

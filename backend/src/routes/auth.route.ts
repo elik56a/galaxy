@@ -6,7 +6,6 @@ import {
 import { IServerInstance } from '../typescript/main.typescript';
 import {
   ILoginBody,
-  IRequestLogin,
   IReplayLogin,
   IForgetPasswordBody,
   IReplayForgetPassword,

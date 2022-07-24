@@ -2,7 +2,7 @@ import fastifyPlugin from 'fastify-plugin';
 
 import { IServerInstance } from '../typescript/main.typescript';
 import { IAuthModel } from '../typescript/models/auth-model.typescript';
-import { AppLayersNames } from '../typescript/enums.typescript';
+import { ServerLayers } from '../typescript/enums.typescript';
 import { createGlobalPlugin } from '../utils/fastify.util';
 
 const createAuthModel = (server: IServerInstance): IAuthModel => ({
@@ -28,8 +28,8 @@ const createAuthModel = (server: IServerInstance): IAuthModel => ({
 });
 
 const authModel = (server: IServerInstance, options, done) => {
-  return createGlobalPlugin(server, done, AppLayersNames.Models, {
-    ...server[AppLayersNames.Models],
+  return createGlobalPlugin(server, done, ServerLayers.Models, {
+    ...server[ServerLayers.Models],
     auth: createAuthModel(server),
   });
 };
