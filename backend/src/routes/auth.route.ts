@@ -2,7 +2,7 @@ import { AUTH_ROUTES } from '../config/routes.config';
 import {
   postForgetPasswordSchema,
   postLoginSchema,
-} from '../schemas/auth-route.schema';
+} from '../schemas/auth.schema';
 import { IServerInstance } from '../typescript/main.typescript';
 import {
   ILoginBody,
