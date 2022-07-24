@@ -6,7 +6,7 @@ import { AppLayersNames } from '../typescript/enums.typescript';
 import { createGlobalPlugin } from '../utils/fastify.util';
 
 const createAuthModel = (server: IServerInstance): IAuthModel => ({
-  login: async (password, userName) => {
+  login: async ({ password, userName }) => {
     try {
       // THIS IS AN EXAMPLE - LIKE GET DATA FROM DB
       return new Promise(resolve => {
@@ -16,7 +16,7 @@ const createAuthModel = (server: IServerInstance): IAuthModel => ({
       console.error(e);
     }
   },
-  forgetPassword: async (userName, email) => {
+  forgetPassword: async ({ userName, email }) => {
     try {
       return new Promise(resolve => {
         setTimeout(() => resolve(true), 2000);

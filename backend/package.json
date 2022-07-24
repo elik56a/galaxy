@@ -20,7 +20,8 @@
     "@fastify/cors": "^8.0.0",
     "@fastify/swagger": "^7.4.1",
     "fastify": "^4.2.1",
-    "fastify-plugin": "^4.0.0"
+    "fastify-plugin": "^4.0.0",
+    "pino-pretty": "^8.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",

@@ -6,7 +6,7 @@ export const SWAGGER_OPTIONS: Record<string, any> = {
       description: 'New Charges API DOCS ',
       version: '1.0.0',
     },
-    host: 'localhost',
+    host: 'localhost:3000',
     schemes: ['http'],
     consumes: ['application/json'],
     produces: ['application/json'],
@@ -48,8 +48,4 @@ export const SWAGGER_OPTIONS: Record<string, any> = {
   staticCSP: true,
   transformStaticCSP: header => header,
   exposeRoute: true,
-};
-
-const routes = {
-  AUTH: '/auth',
 };

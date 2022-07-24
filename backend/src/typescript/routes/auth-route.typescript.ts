@@ -2,22 +2,28 @@ import { FastifyRequest } from 'fastify';
 
 // login
 export interface IRequestLogin extends FastifyRequest {
-  body: {
-    userName: string;
-    password: string;
-  };
+  body: ILoginBody;
 }
-export interface IResponseLogin {
+
+export interface ILoginBody {
+  userName: string;
+  password: string;
+}
+
+export interface IReplayLogin {
   isValid: boolean;
 }
 
 // forgerPassword
 export interface IRequestForgetPassword extends FastifyRequest {
-  body: {
-    userName: string;
-    email: string;
-  };
+  body: IForgetPasswordBody;
 }
-export interface IResponseForgetPassword {
+
+export interface IForgetPasswordBody {
+  userName: string;
+  email: string;
+}
+
+export interface IReplayForgetPassword {
   isSuccess: boolean;
 }

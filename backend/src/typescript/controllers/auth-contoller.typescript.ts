@@ -3,14 +3,14 @@ import { FastifyReply } from 'fastify';
 import {
   IRequestForgetPassword,
   IRequestLogin,
-  IResponseForgetPassword,
-  IResponseLogin,
+  IReplayForgetPassword,
+  IReplayLogin,
 } from '../routes/auth-route.typescript';
 
 export interface IAuthController {
-  login: (req: IRequestLogin, replay: FastifyReply) => Promise<IResponseLogin>;
+  login: (req: IRequestLogin, replay: FastifyReply) => Promise<IReplayLogin>;
   forgetPassword: (
     req: IRequestForgetPassword,
     replay: FastifyReply
-  ) => Promise<IResponseForgetPassword>;
+  ) => Promise<IReplayForgetPassword>;
 }

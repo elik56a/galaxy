@@ -1,4 +1,9 @@
+import {
+  IForgetPasswordBody,
+  ILoginBody,
+} from '../routes/auth-route.typescript';
+
 export interface IAuthModel {
-  login: (password: string, userName: string) => Promise<boolean>;
-  forgetPassword: (userName: string, email: string) => Promise<boolean>;
+  login: (params: ILoginBody) => Promise<boolean>;
+  forgetPassword: (params: IForgetPasswordBody) => Promise<boolean>;
 }

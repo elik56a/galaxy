@@ -9,7 +9,7 @@ const createAuthController = (server: IServerInstance): IAuthController => ({
   login: async req => {
     try {
       const { userName, password } = req.body;
-      const isValid = await server.models.auth.login(userName, password);
+      const isValid = await server.models.auth.login({ userName, password });
 
       return {
         isValid,
@@ -21,10 +21,10 @@ const createAuthController = (server: IServerInstance): IAuthController => ({
   forgetPassword: async req => {
     try {
       const { userName, email } = req.body;
-      const isSuccess = await server.models.auth.forgetPassword(
+      const isSuccess = await server.models.auth.forgetPassword({
         userName,
-        email
-      );
+        email,
+      });
 
       return {
         isSuccess,
