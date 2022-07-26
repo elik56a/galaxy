@@ -13,8 +13,7 @@
     "lint": "eslint --fix",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "test": "echo asdasdasdas",
-    "pre-commit": "yarn prettier:fix && yarn lint && yarn test",
+    "commit": "yarn prettier:fix && yarn lint",
     "prepare": "husky install"
   },
   "dependencies": {
