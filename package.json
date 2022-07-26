@@ -5,13 +5,45 @@
   "private": true,
   "scripts": {
     "frontend": "cd frontend && yarn start",
-    "backend": "cd backend && yarn start",
-    "backend-install": "cd backend && yarn",
-    "frontend-install": "cd frontend && yarn",
-    "dev": "concurrently \"yarn backend\" \"yarn frontend\"",
-    "install-dev": "concurrently \"yarn backend-install\" \"yarn client-install\""
+    "server": "cd server && yarn start",
+    "server-install": "cd server && yarn",
+    "client-install": "cd client && yarn",
+    "start": "concurrently \"yarn server\" \"yarn client\"",
+    "install-all": "concurrently \"yarn server-install\" \"yarn client-install\"",
+    "lint": "eslint src",
+    "prettier:fix": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "dependencies": {
     "concurrently": "^7.2.2"
+
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "typescript": "^4.7.4",
+    "prettier": "^2.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "server/src/**/*.{ts,tsx,json}": [
+      "yarn prettier:fix",
+      "yarn lint"
+    ]
   }
 }

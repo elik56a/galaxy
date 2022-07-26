@@ -38,7 +38,7 @@
 >2. All files with typescript extension (ts).
 >3. After file name , add the file entity(store, controller. etc..) , before the extension
 
-###Examples:
+Examples:
 > auth.store.ts 
 
 > auth.controller.ts

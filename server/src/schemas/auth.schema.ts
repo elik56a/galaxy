@@ -1,4 +1,4 @@
-export const postLoginSchema = {
+export const POST_LOGIN_SCHEMA = {
   schema: {
     body: {
       type: 'object',
@@ -25,7 +25,7 @@ export const postLoginSchema = {
   },
 };
 
-export const postForgetPasswordSchema = {
+export const POST_FORGET_PASSWORD_SCHEMA = {
   schema: {
     body: {
       type: 'object',
