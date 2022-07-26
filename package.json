@@ -10,9 +10,10 @@
     "client-install": "cd client && yarn",
     "start": "concurrently \"yarn server\" \"yarn client\"",
     "install-all": "concurrently \"yarn server-install\" \"yarn client-install\"",
-    "lint": "eslint src",
+    "lint": "eslint --fix",
     "prettier:fix": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "test": "echo asdasdasdas"
   },
   "dependencies": {
     "concurrently": "^7.2.2"
@@ -42,6 +43,7 @@
   },
   "lint-staged": {
     "server/src/**/*.{ts,tsx,json}": [
+      "yarn test",
       "yarn prettier:fix",
       "yarn lint"
     ]
