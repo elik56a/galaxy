@@ -13,11 +13,12 @@
     "lint": "eslint --fix",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "test": "echo asdasdasdas"
+    "test": "echo asdasdasdas",
+    "pre-commit": "yarn prettier:fix && yarn lint && yarn test",
+    "prepare": "husky install"
   },
   "dependencies": {
     "concurrently": "^7.2.2"
-
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.31.0",
