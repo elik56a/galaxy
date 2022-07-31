@@ -4,7 +4,7 @@
 
 1. Run in your cmd: `git clone https://github.com/elik56a/galaxy`
 2. Install all packages with `yarn install-all`
-3. Finally , run code with `yarn start`
+3. Finally , run code with `yarn dev`
 
 ---
 
