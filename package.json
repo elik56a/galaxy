@@ -9,7 +9,7 @@
     "server-install": "cd server && yarn",
     "client-install": "cd client && yarn",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "install-all": "concurrently \"yarn server-install\" \"yarn client-install\"",
+    "install-all": "yarn && concurrently \"yarn server-install\" \"yarn client-install\"",
     "lint": "eslint --fix",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
