@@ -6,7 +6,10 @@ const authModel = (server: IServerInstance): IAuthModel => ({
   login: async ({ password, userName }) => {
     try {
       // @ example to db connection
-      //const user = await server.db('SELECT * FROM ...')
+      // const sql = 'select * from bla';
+      // const binds = [password, userName];
+      // return await server.db.query({ sql, binds });
+
       return new Promise(resolve => {
         setTimeout(() => resolve(MOCK_USER), 10);
       });

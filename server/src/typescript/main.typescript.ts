@@ -8,6 +8,7 @@ import {
   ServerPlugins,
 } from './enums.typescript';
 import { IAuthModel, ISimModel } from './models.typescript';
+import { IDbPlugin } from './plugins.typescript';
 
 export interface IServerInstance extends FastifyInstance {
   [ServerLayers.Controllers]: {
@@ -21,4 +22,5 @@ export interface IServerInstance extends FastifyInstance {
   [ServerAuthPlugins.verifyLogin]: () => void;
   [ServerAuthPlugins.verifyAdmin]: () => void;
   [ServerPlugins.Config]: any;
+  [ServerPlugins.Db]: IDbPlugin;
 }

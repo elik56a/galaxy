@@ -18,6 +18,7 @@ export enum ServerAuthPlugins {
 export enum ServerPlugins {
   Plugins = 'plugins',
   Config = 'config',
+  Db = 'db',
 }
 
 export enum ServerMode {

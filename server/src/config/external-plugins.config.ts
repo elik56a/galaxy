@@ -1,4 +1,4 @@
-import { API_PORT } from './server.config';
+import { SERVER_PORT } from './server.config';
 
 export const SWAGGER_OPTIONS: Record<string, any> = {
   routePrefix: '/docs',
@@ -8,7 +8,7 @@ export const SWAGGER_OPTIONS: Record<string, any> = {
       description: 'New Charges API DOCS ',
       version: '1.0.0',
     },
-    host: `localhost:${API_PORT}`,
+    host: `localhost:${SERVER_PORT}`,
     schemes: ['http'],
     consumes: ['application/json'],
     produces: ['application/json'],

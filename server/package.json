@@ -21,6 +21,7 @@
     "fastify": "^4.2.1",
     "fastify-plugin": "^4.0.0",
     "nodemon": "^2.0.19",
+    "oracledb": "^5.4.0",
     "pino-pretty": "^8.1.0"
   },
   "devDependencies": {

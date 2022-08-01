@@ -10,10 +10,9 @@ export const SERVER_CREDENTIALS: Record<ServerMode, any> = {
       SECRET_JWT: '3safaer3qreafdjfiaefu4whf2iuenfjkqenrkjnqkej',
     },
     DB: {
-      USER_NAME: 'Dev',
-      PASSWORD: '',
-      DB_NAME: '',
-      DB_URL: '',
+      USER_NAME: 'telzar_app',
+      PASSWORD: 'qazwsx',
+      DB_URL: '10.20.110.20:1521/DBIDB',
     },
   },
   [ServerMode.Prod]: {
@@ -23,7 +22,6 @@ export const SERVER_CREDENTIALS: Record<ServerMode, any> = {
     DB: {
       USER_NAME: 'Prod',
       PASSWORD: '',
-      DB_NAME: '',
       DB_URL: '',
     },
   },
