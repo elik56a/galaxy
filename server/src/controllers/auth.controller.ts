@@ -1,19 +1,17 @@
-import fastifyPlugin from 'fastify-plugin';
-
 import { IServerInstance } from '../typescript/main.typescript';
-import { IAuthController } from '../typescript/controllers/auth-contoller.typescript';
-import { ServerLayers } from '../typescript/enums.typescript';
-import { createGlobalPlugin } from '../utils/fastify.util';
+import { IAuthController } from '../typescript/controllers.typescript';
 
-const createAuthController = (server: IServerInstance): IAuthController => ({
-  login: async req => {
+const authController = (server: IServerInstance): IAuthController => ({
+  login: async (req, reply) => {
     try {
       const { userName, password } = req.body;
-      const isValid = await server.models.auth.login({ userName, password });
+      const user = await server.models.auth.login({ userName, password });
+      const token = server.jwt.sign({ ...user }, { expiresIn: '4h' });
 
-      return {
-        isValid,
-      };
+      return reply.send({
+        user,
+        token,
+      });
     } catch (e) {
       console.error(e);
     }
@@ -35,10 +33,4 @@ const createAuthController = (server: IServerInstance): IAuthController => ({
   },
 });
 
-const authController = (server: IServerInstance, options, done) =>
-  createGlobalPlugin(server, done, ServerLayers.Controllers, {
-    ...server[ServerLayers.Controllers],
-    auth: createAuthController(server),
-  });
-
-export default fastifyPlugin(authController);
+export default authController;

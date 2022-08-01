@@ -1,4 +1,4 @@
-import { API_PORT } from './app.config';
+import { API_PORT } from './server.config';
 
 export const SWAGGER_OPTIONS: Record<string, any> = {
   routePrefix: '/docs',

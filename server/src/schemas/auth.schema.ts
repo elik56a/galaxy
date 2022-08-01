@@ -14,14 +14,6 @@ export const POST_LOGIN_SCHEMA = {
       },
       additionalProperties: false,
     },
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          isValid: { type: 'boolean' },
-        },
-      },
-    },
   },
 };
 

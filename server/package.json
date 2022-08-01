@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.ts",
+    "dev": "cross-env NODE_ENV=dev nodemon index.ts",
+    "prod": "cross-env NODE_ENV=prod nodemon index.ts",
     "build": "tsc",
     "test": "jest --coverage",
     "test:watch": "yarn run test -- --watchAll"
@@ -15,6 +16,7 @@
   "dependencies": {
     "@fastify/autoload": "^5.1.0",
     "@fastify/cors": "^8.0.0",
+    "@fastify/jwt": "^6.3.1",
     "@fastify/swagger": "^7.4.1",
     "fastify": "^4.2.1",
     "fastify-plugin": "^4.0.0",
@@ -26,6 +28,7 @@
     "@types/cors": "^2.8.10",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
+    "cross-env": "^7.0.3",
     "jest": "^26.6.3",
     "prettier": "^2.7.1",
     "ts-jest": "^26.5.4",

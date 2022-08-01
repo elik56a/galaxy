@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "echo client start"
+    "dev": "echo client dev",
+    "prod": "echo client prod"
   }
 }

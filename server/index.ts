@@ -1,5 +1,5 @@
 import createServer from './src/server';
-import { API_PORT } from './src/config/app.config';
+import { API_PORT } from './src/config/server.config';
 
 const server = createServer();
 

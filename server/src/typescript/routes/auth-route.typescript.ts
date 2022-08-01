@@ -1,4 +1,5 @@
 import { FastifyRequest } from 'fastify';
+import { IUser } from '../entities/user.typescript';
 
 // login
 export interface IRequestLogin extends FastifyRequest {
@@ -11,7 +12,8 @@ export interface ILoginBody {
 }
 
 export interface IReplayLogin {
-  isValid: boolean;
+  user: IUser;
+  token: string;
 }
 
 // forget password
