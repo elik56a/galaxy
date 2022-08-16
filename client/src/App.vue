@@ -1,11 +1,9 @@
 <template>
   <router-view />
-  <q-btn class='chat-icon' round color="primary" icon="chat" />
+  <q-btn class="chat-icon" round color="primary" icon="chat" />
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style>
 .chat-icon {

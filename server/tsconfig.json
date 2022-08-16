@@ -6,13 +6,10 @@
     "outDir": "../dist/out-tsc",
     "types": ["node"],
     "baseUrl": "./",
-    "rootDirs": [
-      "./src",
-      "../shared"
-    ],
+    "rootDirs": ["./src", "../shared"],
     "paths": {
       "@shared/*": ["../shared/*"],
-      "@server/*": ["./src/*"],
+      "@server/*": ["./src/*"]
     }
   },
   "ts-node": {
