@@ -1,11 +1,11 @@
 import fastifyPlugin from 'fastify-plugin';
 import oracledb from 'oracledb';
 
-import { createGlobalPlugin } from '../utils/fastify.util';
-import { IDbPlugin } from '../typescript/plugins.typescript';
-import { IServerInstance } from '../typescript/main.typescript';
-import { ServerPlugins } from '../typescript/enums.typescript';
-import { CREDENTIALS } from '../config/env.config';
+import { createGlobalPlugin } from '@server/utils/fastify.util';
+import { IDbPlugin } from '@server/types/plugins.type';
+import { IServerInstance } from '@server/types/main.type';
+import { ServerPlugins } from '@server/types/enums.type';
+import { CREDENTIALS } from '@server/config/env.config';
 
 const initDb = async (): Promise<void> => {
   try {

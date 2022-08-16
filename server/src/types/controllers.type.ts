@@ -4,13 +4,13 @@ import {
   IReplayLogin,
   IRequestForgetPassword,
   IRequestLogin,
-} from './routes/auth-route.typescript';
+} from '../../../shared/types/routes/auth-route.types';
 import {
   IReplayActivation,
   IReplayCancellation,
   IRequestActivation,
   IRequestCancellation,
-} from './routes/sim-route.typescript';
+} from '../../../shared/types/routes/sim-route.types';
 
 export interface IAuthController {
   login: (req: IRequestLogin, replay: FastifyReply) => Promise<IReplayLogin>;

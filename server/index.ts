@@ -1,5 +1,6 @@
+import { SERVER_PORT } from '@shared/config/app.config';
+
 import createServer from './src/server';
-import { SERVER_PORT } from './src/config/server.config';
 
 const server = createServer();
 

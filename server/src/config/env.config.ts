@@ -1,7 +1,7 @@
 import path from 'path';
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-import { ServerMode } from '../typescript/enums.typescript';
+import { ServerMode } from '@server/types/enums.type';
 
 // @todo - make correct interface for this object
 export const SERVER_CREDENTIALS: Record<ServerMode, any> = {

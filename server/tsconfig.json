@@ -3,20 +3,21 @@
     "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "rootDir": ".",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
+    "outDir": "../dist/out-tsc",
+    "types": ["node"],
+    "baseUrl": "./",
+    "rootDirs": [
+      "./src",
+      "../shared"
+    ],
     "paths": {
-      "*": ["node_modules/*"]
-    },
-    "noImplicitAny": false,
-    "lib": ["es6"]
-  }
+      "@shared/*": ["../shared/*"],
+      "@server/*": ["./src/*"],
+    }
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "exclude": ["jest.config.ts", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["../shared/**/*.ts"]
 }

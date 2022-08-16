@@ -1,5 +1,5 @@
-import { IServerInstance } from '../typescript/main.typescript';
-import { IAuthController } from '../typescript/controllers.typescript';
+import { IServerInstance } from '@server/types/main.type';
+import { IAuthController } from '@server/types/controllers.type';
 
 const authController = (server: IServerInstance): IAuthController => ({
   login: async (req, reply) => {

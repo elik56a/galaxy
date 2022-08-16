@@ -1,4 +1,4 @@
-import { IUser } from '../typescript/entities/user.typescript';
+import { IUser } from '@shared/types';
 
 export const MOCK_USER: IUser = {
   id: '123456',

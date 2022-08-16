@@ -26,7 +26,7 @@ const myArray = [1, 2, 3];
   > when creating config objects - the convention is to use all upper case characters
 
 ```javascript
-const APP_ROUTES = {
+const PAGES_ROUTES = {
   AUTH: {
     LOGIN: '/auth/login',
   },

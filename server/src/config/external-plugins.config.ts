@@ -1,4 +1,4 @@
-import { SERVER_PORT } from './server.config';
+import { SERVER_PORT } from '@shared/config/app.config';
 
 export const SWAGGER_OPTIONS: Record<string, any> = {
   routePrefix: '/docs',

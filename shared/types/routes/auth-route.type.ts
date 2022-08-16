@@ -1,5 +1,6 @@
 import { FastifyRequest } from 'fastify';
-import { IUser } from '../entities/user.typescript';
+
+import { IUser } from '../index';
 
 // login
 export interface IRequestLogin extends FastifyRequest {

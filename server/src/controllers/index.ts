@@ -1,10 +1,10 @@
 import fastifyPlugin from 'fastify-plugin';
 
-import { createGlobalPlugin } from '../utils/fastify.util';
+import { createGlobalPlugin } from '@server/utils/fastify.util';
+import { ServerEntities, ServerLayers } from '@server/types/enums.type';
+import { IServerInstance } from '@server/types/main.type';
 import simController from './sim.controller';
 import authController from './auth.controller';
-import { ServerEntities, ServerLayers } from '../typescript/enums.typescript';
-import { IServerInstance } from '../typescript/main.typescript';
 
 const serverControllers = (server: IServerInstance, options, done) =>
   createGlobalPlugin(server, done, ServerLayers.Controllers, {

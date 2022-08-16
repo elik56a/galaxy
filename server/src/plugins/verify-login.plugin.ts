@@ -1,8 +1,8 @@
+import { FastifyReply, FastifyRequest } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
 
-import { ServerAuthPlugins } from '../typescript/enums.typescript';
-import { createGlobalPlugin } from '../utils/fastify.util';
-import { FastifyReply, FastifyRequest } from 'fastify';
+import { ServerAuthPlugins } from '@server/types/enums.type';
+import { createGlobalPlugin } from '@server/utils/fastify.util';
 
 const verifyLogin = async (request: FastifyRequest, reply: FastifyReply) => {
   try {

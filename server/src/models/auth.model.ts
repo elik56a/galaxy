@@ -1,6 +1,6 @@
-import { IServerInstance } from '../typescript/main.typescript';
-import { IAuthModel } from '../typescript/models.typescript';
-import { MOCK_USER } from '../mocks/users.mock';
+import { IServerInstance } from '@server/types/main.type';
+import { IAuthModel } from '@server/types/models.type';
+import { MOCK_USER } from '@server/mocks/users.mock';
 
 const authModel = (server: IServerInstance): IAuthModel => ({
   login: async ({ password, userName }) => {

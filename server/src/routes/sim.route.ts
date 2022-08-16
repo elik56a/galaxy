@@ -1,12 +1,12 @@
-import { SIM_ROUTES } from '../config/routes.config';
-
-import { IServerInstance } from '../typescript/main.typescript';
+import { SIM_ROUTES } from '@shared/config/routes.config';
 import {
   IActivationBody,
   ICancellationBody,
   IReplayActivation,
   IReplayCancellation,
-} from '../typescript/routes/sim-route.typescript';
+} from '@shared/types';
+
+import { IServerInstance } from '@server/types/main.type';
 
 const simRoute = (server: IServerInstance, options, done) => {
   // route validation
@@ -16,7 +16,7 @@ const simRoute = (server: IServerInstance, options, done) => {
     SIM_ROUTES.ACTIVATION,
     server.controllers.sim.activation
   );
-  // sim cancellation
+  // // sim cancellation
   server.post<{ Body: ICancellationBody; Reply: IReplayCancellation }>(
     SIM_ROUTES.CANCELLATION,
     server.controllers.sim.cancellation

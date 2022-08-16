@@ -1,9 +1,9 @@
-import { IServerInstance } from '../typescript/main.typescript';
+import { IServerInstance } from '@server/types/main.type';
 import {
   ServerAuthPlugins,
   ServerLayers,
   ServerPlugins,
-} from '../typescript/enums.typescript';
+} from '@server/types/enums.type';
 
 export const createGlobalPlugin = (
   server: IServerInstance,

@@ -1,6 +1,5 @@
-import { IServerInstance } from '../typescript/main.typescript';
-import { IAuthModel, ISimModel } from '../typescript/models.typescript';
-import { MOCK_USER } from '../mocks/users.mock';
+import { IServerInstance } from '@server/types/main.type';
+import { ISimModel } from '@server/types/models.type';
 
 const simModel = (server: IServerInstance): ISimModel => ({
   activation: async ({ simId }) => {

@@ -1,12 +1,10 @@
 import {
   IForgetPasswordBody,
   ILoginBody,
-} from './routes/auth-route.typescript';
-import { IUser } from './entities/user.typescript';
-import {
+  IUser,
   IActivationBody,
   ICancellationBody,
-} from './routes/sim-route.typescript';
+} from '@shared/types';
 
 export interface IAuthModel {
   login: (params: ILoginBody) => Promise<IUser>;

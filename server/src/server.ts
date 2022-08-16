@@ -8,15 +8,15 @@ import jwt from '@fastify/jwt';
 import {
   LOGGER_OPTIONS,
   SWAGGER_OPTIONS,
-} from './config/external-plugins.config';
-import { SERVER_PREFIX } from './config/server.config';
-import { CREDENTIALS } from './config/env.config';
-import { ServerLayers, ServerPlugins } from './typescript/enums.typescript';
-import { IServerInstance } from './typescript/main.typescript';
+} from '@server/config/external-plugins.config';
+import { SERVER_PREFIX } from '@shared/config/app.config';
+import { CREDENTIALS } from '@server/config/env.config';
+import { ServerLayers, ServerPlugins } from '@server/types/enums.type';
+import { IServerInstance } from '@server/types/main.type';
 
 export const createServer = (): IServerInstance => {
   const server: FastifyInstance = fastify({
-    ...LOGGER_OPTIONS,
+    // ...LOGGER_OPTIONS,
     // @todo -config logger to be daily rotate
     // @todo -config schemaErrorFormatter as well
   });
@@ -43,7 +43,7 @@ export const createServer = (): IServerInstance => {
 
   server.setErrorHandler((error, req, reply) => {
     req.log.error(error.toString());
-    reply.send({ error });
+    reply.status(400).send({ error });
   });
 
   return server as IServerInstance;

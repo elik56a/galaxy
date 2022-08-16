@@ -1,5 +1,4 @@
 import { FastifyRequest } from 'fastify';
-import { IUser } from '../entities/user.typescript';
 
 // activation
 export interface IRequestActivation extends FastifyRequest {

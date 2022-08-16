@@ -1,14 +1,15 @@
 import { FastifyInstance } from 'fastify';
-import { IAuthController, ISimController } from './controllers.typescript';
+import { JWT } from '@fastify/jwt';
 
+import { IAuthController, ISimController } from './controllers.type';
 import {
   ServerAuthPlugins,
   ServerEntities,
   ServerLayers,
   ServerPlugins,
-} from './enums.typescript';
-import { IAuthModel, ISimModel } from './models.typescript';
-import { IDbPlugin } from './plugins.typescript';
+} from './enums.type';
+import { IAuthModel, ISimModel } from './models.type';
+import { IDbPlugin } from './plugins.type';
 
 export interface IServerInstance extends FastifyInstance {
   [ServerLayers.Controllers]: {
@@ -23,4 +24,5 @@ export interface IServerInstance extends FastifyInstance {
   [ServerAuthPlugins.verifyAdmin]: () => void;
   [ServerPlugins.Config]: any;
   [ServerPlugins.Db]: IDbPlugin;
+  jwt: JWT;
 }

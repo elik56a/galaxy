@@ -1,15 +1,16 @@
-import { AUTH_ROUTES } from '../config/routes.config';
+import { AUTH_ROUTES } from '@shared/config/routes.config';
 import {
   POST_FORGET_PASSWORD_SCHEMA,
   POST_LOGIN_SCHEMA,
-} from '../schemas/auth.schema';
-import { IServerInstance } from '../typescript/main.typescript';
+} from '@server/schemas/auth.schema';
+import { IServerInstance } from '@server/types/main.type';
+
 import {
   ILoginBody,
   IReplayLogin,
   IForgetPasswordBody,
   IReplayForgetPassword,
-} from '../typescript/routes/auth-route.typescript';
+} from '@shared/types';
 
 const authRoute = (server: IServerInstance, options, done) => {
   // login

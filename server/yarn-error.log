@@ -28,7 +28,7 @@ npm manifest:
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "nodemon index.ts",
+      "start": "nodemon en.ts",
       "build": "tsc",
       "test": "jest --coverage",
       "test:watch": "yarn run test -- --watchAll",

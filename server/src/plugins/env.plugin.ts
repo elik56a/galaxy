@@ -1,9 +1,9 @@
 import fastifyPlugin from 'fastify-plugin';
 
-import { ServerPlugins } from '../typescript/enums.typescript';
-import { createGlobalPlugin } from '../utils/fastify.util';
-import { CREDENTIALS } from '../config/env.config';
-import { IServerInstance } from '../typescript/main.typescript';
+import { createGlobalPlugin } from '@server/utils/fastify.util';
+import { CREDENTIALS } from '@server/config/env.config';
+import { ServerPlugins } from '@server/types/enums.type';
+import { IServerInstance } from '@server/types/main.type';
 
 const createEnvConfigPlugin = (server: IServerInstance, options, done) =>
   createGlobalPlugin(server, done, ServerPlugins.Config, CREDENTIALS);

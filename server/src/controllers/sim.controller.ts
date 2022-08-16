@@ -1,5 +1,5 @@
-import { IServerInstance } from '../typescript/main.typescript';
-import { ISimController } from '../typescript/controllers.typescript';
+import { IServerInstance } from '@server/types/main.type';
+import { ISimController } from '@server/types/controllers.type';
 
 const simController = (server: IServerInstance): ISimController => ({
   activation: async (req, replay) => {
