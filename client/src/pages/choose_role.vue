@@ -11,46 +11,45 @@
         <div>
           <q-card flat class="vertical-middle">
             <q-card-section
-            ><br/><br/><br/><br/>
+              ><br /><br /><br /><br />
               <div class="text-h6 q-mb-lg text-center">
-                {{ $t('login.niceToSeeYou') }}
+                {{ $t('choose_role.hiwhatsapp') }}
               </div>
-              <q-separator/>
-              <q-form ref="loginForm" class="q-gutter-md q-mt-lg">
-                <q-input
+              <q-separator />
+              <br />
+              <br />
+              <br />
+              <div class="text-left">
+                {{ $t('choose_role.chooseroletext') }}
+              </div>
+              <q-form ref="roleForm" class="q-gutter-md q-mt-lg">
+                <q-select
                   outlined
                   clearable
-                  v-model="form.userName"
-                  type="userName"
-                  :label="$t('general.userName')"
+                  v-model="form.role"
+                  :options="['מחלקת בקרה- מנהל NOC', 'מחלקת פיתוח- DBA']"
+                  :label="$t('choose_role.chooserole')"
                   :rules="[rules.required]"
-                />
-                <q-input
-                  outlined
-                  clearable
-                  v-model="form.password"
-                  type="password"
-                  :label="$t('general.password')"
-                  :rules="[rules.required]"
-                />
-                <q-checkbox
-                  :label="$t('login.keepMeLoggedIn')"
-                  model-value=""
                 />
               </q-form>
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="login"
+                @click="loginRole"
                 unelevated
                 color="primary"
                 size="lg"
                 class="full-width"
-                :label="$t('login.login')"
+                :label="$t('general.start')"
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
-              <q-btn @click="forget_password" flat color="primary" :label="$t('login.forgetPassword')"/>
+              <q-btn
+                @click="back_to_start"
+                flat
+                color="primary"
+                :label="$t('general.backtostart')"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -60,7 +59,7 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/login-image.png"
+          src="../assets/welcome_page.png"
         />
       </div>
 
@@ -77,30 +76,27 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from 'vue';
+import { reactive, ref } from 'vue';
 
 import rules from '@shared/utils/form-validation.util';
-import {ILoginBody} from '@shared/types/routes/auth-route.type';
+import { ILoginBody } from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
-
+import { LOGGER_OPTIONS } from '../../../server/src/config/external-plugins.config';
 const authStore = useAuthStore();
-const loginForm = ref();
-const form = reactive(<ILoginBody>{
-  userName: '',
-  password: '',
+const roleForm = ref();
+const form = reactive(<IRoleBody>{
+  role: '',
 });
 
-const forget_password = async (): Promise<void> => {
-  return authStore.forget_password();
+const back_to_start = async (): Promise<void> => {
+  return authStore.back_to_start();
 };
 
-const login = async (): Promise<void> => {
-  const isValid = await loginForm.value.validate();
-
+const loginRole = async (): Promise<void> => {
+  const isValid = await roleForm.value.validate();
   if (!isValid) return;
-
-  return authStore.login(form);
+  return authStore.loginRole(form);
 };
 </script>
 

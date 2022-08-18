@@ -3,7 +3,7 @@ export const AUTH_ROUTES: Record<string, string> = {
   FORGET_PASSWORD: '/auth/forget-password',
 };
 
-export const SIM_ROUTES: Record<string, string> = {
+export const SIM_ROUTES: Record<string | number, string> = {
   ACTIVATION: '/sim/activation',
   CANCELLATION: '/sim/cancellation',
 };

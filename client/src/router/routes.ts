@@ -8,6 +8,18 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/LoginPage.vue'),
   },
   {
+    path: PAGES_ROUTES.CHOOSEROLE,
+    component: () => import('pages/choose_role.vue'),
+  },
+  {
+    path: PAGES_ROUTES.FORGOTPASSWORD,
+    component: () => import('pages/forgot_password.vue'),
+  },
+  {
+    path: PAGES_ROUTES.CHANGEPASSWORD,
+    component: () => import('pages/change_password.vue'),
+  },
+  {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     redirect: PAGES_ROUTES.HOME,

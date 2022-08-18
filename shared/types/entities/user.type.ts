@@ -6,4 +6,7 @@ export interface IUser {
   email: string;
   phoneNumber: string;
   lastLogin: string | Date;
+  settings: {
+    lang: string;
+  };
 }

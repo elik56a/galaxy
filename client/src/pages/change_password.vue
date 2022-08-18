@@ -13,44 +13,58 @@
             <q-card-section
             ><br/><br/><br/><br/>
               <div class="text-h6 q-mb-lg text-center">
-                {{ $t('login.niceToSeeYou') }}
+                {{ $t('change_password.changepassword') }}
               </div>
               <q-separator/>
-              <q-form ref="loginForm" class="q-gutter-md q-mt-lg">
+              <br/>
+              <br/>
+              <div class="text-left">
+                {{ $t('change_password.changepasswordtext') }}
+              </div>
+              <q-form ref="changepasswordForm" class="q-gutter-md q-mt-lg">
                 <q-input
                   outlined
                   clearable
-                  v-model="form.userName"
-                  type="userName"
-                  :label="$t('general.userName')"
-                  :rules="[rules.required]"
-                />
-                <q-input
-                  outlined
-                  clearable
-                  v-model="form.password"
+                  v-model="form.tmp_password"
                   type="password"
-                  :label="$t('general.password')"
+                  :label="$t('change_password.tmppassword')"
                   :rules="[rules.required]"
                 />
-                <q-checkbox
-                  :label="$t('login.keepMeLoggedIn')"
-                  model-value=""
+                <q-input
+                  outlined
+                  clearable
+                  v-model="form.new_password"
+                  type="password"
+                  :label="$t('change_password.tmppassword')"
+                  :rules="[rules.required]"
+                />
+                <q-input
+                  outlined
+                  clearable
+                  v-model="form.new_passworda"
+                  type="password"
+                  :label="$t('change_password.newpassworda')"
+                  :rules="[rules.required]"
                 />
               </q-form>
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="login"
+                @click="savepassword"
                 unelevated
                 color="primary"
                 size="lg"
                 class="full-width"
-                :label="$t('login.login')"
+                :label="$t('general.save')"
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
-              <q-btn @click="forget_password" flat color="primary" :label="$t('login.forgetPassword')"/>
+              <q-btn
+                @click="back_to_start"
+                flat
+                color="primary"
+                :label="$t('general.backtostart')"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -60,7 +74,7 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/login-image.png"
+          src="../assets/welcome_page.png"
         />
       </div>
 
@@ -83,25 +97,24 @@ import rules from '@shared/utils/form-validation.util';
 import {ILoginBody} from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
+import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
 
 const authStore = useAuthStore();
-const loginForm = ref();
-const form = reactive(<ILoginBody>{
-  userName: '',
-  password: '',
+const changepasswordForm = ref();
+const form = reactive(<IChangePasswordBody>{
+  passwords: false
 });
 
-const forget_password = async (): Promise<void> => {
-  return authStore.forget_password();
-};
-
-const login = async (): Promise<void> => {
-  const isValid = await loginForm.value.validate();
-
+const savepassword = async (): Promise<void> => {
+  const isValid = await changepasswordForm.value.validate();
   if (!isValid) return;
-
-  return authStore.login(form);
+  return authStore.savepassword(form);
 };
+
+const back_to_start = async (): Promise<void> => {
+  return authStore.back_to_start();
+};
+
 </script>
 
 <style>

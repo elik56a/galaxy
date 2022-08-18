@@ -13,5 +13,10 @@ export interface IAuthStore {
   };
   actions: {
     login: (form: ILoginBody) => Promise<void>;
+    back_to_start: () => Promise<void>;
+    loginRole: () => Promise<void>;
+    sendpassword: () => Promise<void>;
+    forget_password: () => Promise<void>;
+    savepassword: () => Promise<void>;
   };
 }

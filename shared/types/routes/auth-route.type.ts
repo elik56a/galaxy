@@ -12,6 +12,14 @@ export interface ILoginBody {
   password: string;
 }
 
+export interface IRoleBody {
+  role: string;
+}
+
+export interface IResetPasswordBody {
+  optionsend: string;
+}
+
 export interface IReplayLogin {
   user: IUser;
   token: string;

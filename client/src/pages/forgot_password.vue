@@ -13,44 +13,45 @@
             <q-card-section
             ><br/><br/><br/><br/>
               <div class="text-h6 q-mb-lg text-center">
-                {{ $t('login.niceToSeeYou') }}
+                {{ $t('reset_password.resetpassword') }}
               </div>
               <q-separator/>
-              <q-form ref="loginForm" class="q-gutter-md q-mt-lg">
-                <q-input
+              <br/>
+              <br/>
+              <q-form ref="resetpasswordForm" class="q-gutter-md q-mt-lg">
+                <q-select
                   outlined
                   clearable
-                  v-model="form.userName"
-                  type="userName"
-                  :label="$t('general.userName')"
+                  v-model="form.optionsend"
+                  :options="['במייל', 'בסמס']"
+                  :label="$t('general.chooseoption')"
                   :rules="[rules.required]"
                 />
-                <q-input
-                  outlined
-                  clearable
-                  v-model="form.password"
-                  type="password"
-                  :label="$t('general.password')"
-                  :rules="[rules.required]"
-                />
-                <q-checkbox
-                  :label="$t('login.keepMeLoggedIn')"
-                  model-value=""
-                />
+                <div v-if="form.optionsend=='במייל'" class="text-left">
+                  {{ $t('reset_password.resetpasswordmailtext') }}
+                </div>
+                <div v-if="form.optionsend=='בסמס'" class="text-left">
+                  {{ $t('reset_password.resetpasswordsmstext') }}
+                </div>
               </q-form>
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="login"
+                @click="sendpassword"
                 unelevated
                 color="primary"
                 size="lg"
                 class="full-width"
-                :label="$t('login.login')"
+                :label="$t('general.send')"
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
-              <q-btn @click="forget_password" flat color="primary" :label="$t('login.forgetPassword')"/>
+              <q-btn
+                @click="back_to_start"
+                flat
+                color="primary"
+                :label="$t('general.backtostart')"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -60,7 +61,7 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/login-image.png"
+          src="../assets/welcome_page.png"
         />
       </div>
 
@@ -83,24 +84,22 @@ import rules from '@shared/utils/form-validation.util';
 import {ILoginBody} from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
+import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
 
 const authStore = useAuthStore();
-const loginForm = ref();
-const form = reactive(<ILoginBody>{
-  userName: '',
-  password: '',
+const resetpasswordForm = ref();
+const form = reactive(<IResetPasswordBody>{
+  optionsend: '',
 });
 
-const forget_password = async (): Promise<void> => {
-  return authStore.forget_password();
+const back_to_start = async (): Promise<void> => {
+  return authStore.back_to_start();
 };
 
-const login = async (): Promise<void> => {
-  const isValid = await loginForm.value.validate();
-
+const sendpassword = async (): Promise<void> => {
+  const isValid = await resetpasswordForm.value.validate();
   if (!isValid) return;
-
-  return authStore.login(form);
+  return authStore.sendpassword(form);
 };
 </script>
 

@@ -28,8 +28,8 @@
 //   translate('$vuetify.invalidNumber');
 
 const rules = {
-  required: (value: string | number | null) =>
-    !!value || 'Please enter a value',
+  required: (value: string | number | null) => !!value || 'שדה חובה',
+
   // validEmail,
   // digitsOnly,
   // validPassword,
