@@ -11,33 +11,35 @@
         <div>
           <q-card flat class="vertical-middle">
             <q-card-section
-            ><br/><br/><br/><br/>
+              ><br /><br /><br /><br />
               <div class="text-h6 q-mb-lg text-center">
-                {{ $t('reset_password.resetpassword') }}
+                {{ $t('resetPassword.resetPassword') }}
               </div>
-              <q-separator/>
-              <br/>
-              <br/>
-              <q-form ref="resetpasswordForm" class="q-gutter-md q-mt-lg">
+              <q-separator />
+              <br />
+              <br />
+              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg">
                 <q-select
                   outlined
                   clearable
-                  v-model="form.optionsend"
-                  :options="['במייל', 'בסמס']"
+                  map-options
+                  emit-value
+                  v-model="form.selectedResetOption"
+                  :options="RESET_PASSWORD_SEND_OPTIONS"
                   :label="$t('general.chooseoption')"
                   :rules="[rules.required]"
                 />
-                <div v-if="form.optionsend=='במייל'" class="text-left">
-                  {{ $t('reset_password.resetpasswordmailtext') }}
-                </div>
-                <div v-if="form.optionsend=='בסמס'" class="text-left">
-                  {{ $t('reset_password.resetpasswordsmstext') }}
+                <div class="text-left" v-if="!!form.selectedResetOption">
+                  {{ $t('resetPassword.tempPassWillSent') }}
+                  {{
+                    $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`)
+                  }}
                 </div>
               </q-form>
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="sendpassword"
+                @click="resetPassword"
                 unelevated
                 color="primary"
                 size="lg"
@@ -47,7 +49,7 @@
             </q-card-actions>
             <q-card-section class="q-pt-none">
               <q-btn
-                @click="back_to_start"
+                @click="router.push(PAGES_ROUTES.LOGIN)"
                 flat
                 color="primary"
                 :label="$t('general.backtostart')"
@@ -65,12 +67,13 @@
         />
       </div>
 
-      <q-footer style="height:25px;">
-        <q-toolbar style="background-color: #4B0082">
-          <q-toolbar-title class="text-center text-subtitle1" style="color: white; height: 100px"
-          >019Mobile By Oriya
-          </q-toolbar-title
-          >
+      <q-footer style="height: 25px">
+        <q-toolbar style="background-color: #4b0082">
+          <q-toolbar-title
+            class="text-center text-subtitle1"
+            style="color: white; height: 100px"
+            >019Mobile By Oriya
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </q-page>
@@ -78,28 +81,31 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from 'vue';
+import { computed, reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import rules from '@shared/utils/form-validation.util';
-import {ILoginBody} from '@shared/types/routes/auth-route.type';
+import { IResetPasswordBody, ResetPasswordSendOptions } from '@shared/types';
 
 import useAuthStore from '@client/stores/auth.store';
-import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
+import { PAGES_ROUTES, RESET_PASSWORD_SEND_OPTIONS } from '@client/config';
 
+const router = useRouter();
 const authStore = useAuthStore();
-const resetpasswordForm = ref();
-const form = reactive(<IResetPasswordBody>{
-  optionsend: '',
+const resetPasswordForm = ref();
+
+const form = reactive<IResetPasswordBody>({
+  selectedResetOption: null,
 });
 
-const back_to_start = async (): Promise<void> => {
-  return authStore.back_to_start();
-};
+const isSmsSelected = computed(
+  (): boolean => form.selectedResetOption === ResetPasswordSendOptions.Sms
+);
 
-const sendpassword = async (): Promise<void> => {
-  const isValid = await resetpasswordForm.value.validate();
+const resetPassword = async (): Promise<void> => {
+  const isValid = await resetPasswordForm.value.validate();
   if (!isValid) return;
-  return authStore.sendpassword(form);
+  return authStore.resetPassword(form);
 };
 </script>
 

@@ -1,15 +1,15 @@
-import {defineStore} from 'pinia';
+import { defineStore } from 'pinia';
 
-import {TOKEN_KEY, USER_KEY} from '@shared/types/constants/auth.constant';
-import {AUTH_ROUTES} from '@shared/config/routes.config';
-import {IReplayLogin} from '@shared/types';
+import { LANG_KEY } from '@shared/config/app.config';
+import { TOKEN_KEY, USER_KEY } from '@shared/config/auth.config';
+import { AUTH_ROUTES } from '@shared/config/routes.config';
+import { IReplayLogin } from '@shared/types';
 
 import api from '@client/services/api';
-import {router} from '@client/router';
-import {IAuthStore} from '@client/types/stores/auth-store.type';
-import {getItem, setItem} from '@client/utils/local-storage.util';
-import {PAGES_ROUTES} from '@client/config/pages-routes.config';
-import {LANG_KEY} from '@client/utils/langs.util';
+import { router } from '@client/router';
+import { IAuthStore } from '@client/types/stores/auth-store.type';
+import { getItem, setItem } from '@client/utils/local-storage.util';
+import { PAGES_ROUTES } from '@client/config/pages-routes.config';
 
 const authStore: IAuthStore = {
   state: () => ({
@@ -23,7 +23,7 @@ const authStore: IAuthStore = {
   },
   actions: {
     async login(form) {
-      const {user, token}: IReplayLogin = await api.post(
+      const { user, token }: IReplayLogin = await api.post(
         //send
         AUTH_ROUTES.LOGIN, //url
         form
@@ -50,7 +50,7 @@ const authStore: IAuthStore = {
     async loginRole() {
       await router.push(PAGES_ROUTES.HOME);
     },
-    async sendpassword() {
+    async resetPassword() {
       await router.push(PAGES_ROUTES.CHANGEPASSWORD);
     },
     async savepassword() {

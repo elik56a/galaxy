@@ -1,4 +1,5 @@
 import { FastifyRequest } from 'fastify';
+import { ResetPasswordSendOptions } from '../entities/auth.type';
 
 import { IUser } from '../index';
 
@@ -17,7 +18,7 @@ export interface IRoleBody {
 }
 
 export interface IResetPasswordBody {
-  optionsend: string;
+  selectedResetOption: ResetPasswordSendOptions;
 }
 
 export interface IReplayLogin {

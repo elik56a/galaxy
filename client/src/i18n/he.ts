@@ -19,13 +19,13 @@ export default {
     hiwhatsapp: 'היי אוריה, מה קורה?',
     chooseroletext: 'מאיזה תפקיד תבחר להתחבר הפעם?',
     chooserole: 'בחר תפקיד',
-
   },
-  reset_password: {
-    resetpassword: 'איפוס סיסמה',
-    resetpasswordmailtext: 'תוך מספר שניות תשלח אליך סיסמא זמנית במייל',
-    resetpasswordsmstext: 'תוך מספר שניות תשלח אליך סיסמא זמנית בסמס',
-    onmail: 'במייל',
+  resetPassword: {
+    resetPassword: 'איפוס סיסמה',
+    tempPassWillSent:
+      'תוך מספר שניות תשלח אליך סיסמא זמנית {selectedResetOption}',
+    onMail: 'במייל',
+    onSms: 'בסמס',
   },
   change_password: {
     changepassword: 'החלפת סיסמה',
