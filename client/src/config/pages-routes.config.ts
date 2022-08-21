@@ -1,6 +1,6 @@
 export const PAGES_ROUTES = {
   LOGIN: '/login',
-  CHOOSEROLE: '/login/choose_role',
+  CHOOSE_ROLE: '/login/choose-role',
   FORGOTPASSWORD: '/login/forgot_password',
   CHANGEPASSWORD: '/login/change_password',
   HOME: '/home',

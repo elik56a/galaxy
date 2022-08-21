@@ -8,7 +8,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/LoginPage.vue'),
   },
   {
-    path: PAGES_ROUTES.CHOOSEROLE,
+    path: PAGES_ROUTES.CHOOSE_ROLE,
     component: () => import('pages/choose_role.vue'),
   },
   {
