@@ -38,7 +38,7 @@ const authStore: IAuthStore = {
         setItem(USER_KEY, user);
         setItem(LANG_KEY, user.settings.lang);
 
-        await router.push(PAGES_ROUTES.CHOOSEROLE);
+        await router.push(PAGES_ROUTES.CHOOSE_ROLE);
       }
     },
     async forget_password() {
