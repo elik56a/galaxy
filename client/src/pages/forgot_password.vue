@@ -15,9 +15,7 @@
                 {{ $t('resetPassword.resetPassword') }}
               </div>
               <q-separator />
-              <br />
-              <br />
-              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg">
+              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg q-pt-xl">
                 <q-select
                   outlined
                   clearable
@@ -38,9 +36,7 @@
                 />
                 <div class="text-left" v-if="!!form.selectedResetOption">
                   {{ $t('resetPassword.tempPassWillSent') }}
-                  {{
-                    $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`)
-                  }}
+                  {{ $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`) }}
                 </div>
               </q-form>
             </q-card-section>
