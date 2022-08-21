@@ -42,7 +42,7 @@ const authStore: IAuthStore = {
       }
     },
     async forget_password() {
-      await router.push(PAGES_ROUTES.FORGOTPASSWORD);
+      await router.push(PAGES_ROUTES.FORGOT_PASSWORD);
     },
     async back_to_start() {
       await router.push(PAGES_ROUTES.LOGIN);

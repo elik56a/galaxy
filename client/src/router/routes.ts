@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/choose_role.vue'),
   },
   {
-    path: PAGES_ROUTES.FORGOTPASSWORD,
+    path: PAGES_ROUTES.FORGOT_PASSWORD,
     component: () => import('pages/forgot_password.vue'),
   },
   {
