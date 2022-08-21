@@ -41,7 +41,7 @@
             </q-card-actions>
             <q-card-section class="q-pt-none">
               <q-btn
-                @click="backToStart"
+                @click="router.push(PAGES_ROUTES.LOGIN)"
                 flat
                 color="primary"
                 :label="$t('general.backtostart')"
@@ -79,16 +79,15 @@ import {ILoginBody} from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
 import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
+import {useRouter} from "vue-router";
+import {PAGES_ROUTES} from '@client/config';
 
+const router = useRouter();
 const authStore = useAuthStore();
 const roleForm = ref();
 const form = reactive(<IRoleBody>{
   role: '',
 });
-
-const backToStart = async (): Promise<void> => {
-  return authStore.back_to_start();
-};
 
 const loginRole = async (): Promise<void> => {
   const isValid = await roleForm.value.validate();
