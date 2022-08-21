@@ -6,13 +6,13 @@
           src="../assets/app-logo.png"
           class="q-ma-lg"
           height="40px"
-          width="70px"
+          width="80px"
         />
         <div>
-          <q-card flat class="vertical-middle">
+          <q-card flat class="vertical-middle q-pt-xl">
             <q-card-section
-            ><br/><br/><br/><br/>
-              <div class="text-h6 q-mb-lg text-center">
+            >
+              <div class="text-h6 q-mb-lg text-center q-pt-xl">
                 {{ $t('login.niceToSeeYou') }}
               </div>
               <q-separator/>
@@ -50,7 +50,7 @@
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
-              <q-btn @click="forget_password" flat color="primary" :label="$t('login.forgetPassword')"/>
+              <q-btn @click="forgetPassword" flat color="primary" :label="$t('login.forgetPassword')"/>
             </q-card-section>
           </q-card>
         </div>
@@ -66,7 +66,7 @@
 
       <q-footer style="height:25px;">
         <q-toolbar style="background-color: #4B0082">
-          <q-toolbar-title class="text-center text-subtitle1" style="color: white; height: 100px"
+          <q-toolbar-title class="text-center text-subtitle1 footer-style"
           >019Mobile By Oriya
           </q-toolbar-title
           >
@@ -91,7 +91,7 @@ const form = reactive(<ILoginBody>{
   password: '',
 });
 
-const forget_password = async (): Promise<void> => {
+const forgetPassword = async (): Promise<void> => {
   return authStore.forget_password();
 };
 

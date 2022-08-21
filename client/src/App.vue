@@ -11,4 +11,9 @@
   bottom: 5%;
   left: 4%;
 }
+
+.footer-style {
+  color: white;
+  height: 100px;
+}
 </style>
