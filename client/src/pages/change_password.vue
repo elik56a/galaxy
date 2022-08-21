@@ -6,19 +6,16 @@
           src="../assets/app-logo.png"
           class="q-ma-lg"
           height="40px"
-          width="70px"
+          width="80px"
         />
         <div>
-          <q-card flat class="vertical-middle">
-            <q-card-section
-            ><br/><br/><br/><br/>
-              <div class="text-h6 q-mb-lg text-center">
+          <q-card flat class="vertical-middle q-pt-xl">
+            <q-card-section>
+              <div class="text-h6 q-mb-lg text-center q-pt-xl">
                 {{ $t('change_password.changepassword') }}
               </div>
               <q-separator/>
-              <br/>
-              <br/>
-              <div class="text-left">
+              <div class="text-left q-pt-xl">
                 {{ $t('change_password.changepasswordtext') }}
               </div>
               <q-form ref="changepasswordForm" class="q-gutter-md q-mt-lg">
@@ -50,7 +47,7 @@
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="savepassword"
+                @click="savePassword"
                 unelevated
                 color="primary"
                 size="lg"
@@ -60,7 +57,7 @@
             </q-card-actions>
             <q-card-section class="q-pt-none">
               <q-btn
-                @click="back_to_start"
+                @click="router.push(PAGES_ROUTES.LOGIN)"
                 flat
                 color="primary"
                 :label="$t('general.backtostart')"
@@ -74,16 +71,15 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/welcome_page.png"
+          src="../assets/change_password.png"
         />
       </div>
 
-      <q-footer style="height:25px;">
-        <q-toolbar style="background-color: #4B0082">
-          <q-toolbar-title class="text-center text-subtitle1" style="color: white; height: 100px"
+      <q-footer style="height: 25px">
+        <q-toolbar style="background-color: #4b0082">
+          <q-toolbar-title class="text-center text-subtitle1 footer-style"
           >019Mobile By Oriya
-          </q-toolbar-title
-          >
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </q-page>
@@ -98,21 +94,20 @@ import {ILoginBody} from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
 import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
+import {PAGES_ROUTES} from '@client/config';
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const authStore = useAuthStore();
 const changepasswordForm = ref();
 const form = reactive(<IChangePasswordBody>{
   passwords: false
 });
 
-const savepassword = async (): Promise<void> => {
+const savePassword = async (): Promise<void> => {
   const isValid = await changepasswordForm.value.validate();
   if (!isValid) return;
   return authStore.savepassword(form);
-};
-
-const back_to_start = async (): Promise<void> => {
-  return authStore.back_to_start();
 };
 
 </script>

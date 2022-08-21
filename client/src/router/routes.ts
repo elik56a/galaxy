@@ -16,8 +16,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/forgot_password.vue'),
   },
   {
-    path: PAGES_ROUTES.CHANGEPASSWORD,
+    path: PAGES_ROUTES.CHANGE_PASSWORD,
     component: () => import('pages/change_password.vue'),
+  },
+  {
+    path: PAGES_ROUTES.PASSWORD_SUCCESS,
+    component: () => import('pages/password_success.vue'),
   },
   {
     path: '/',
