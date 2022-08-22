@@ -1,6 +1,7 @@
 {
   "extends": "@quasar/app-vite/tsconfig-preset",
   "compilerOptions": {
+    "strictNullChecks": false,
     "baseUrl": "./",
     "rootDirs": ["./src", "../shared"],
     "paths": {

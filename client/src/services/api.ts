@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 import { SERVER_PORT, SERVER_PREFIX } from '@shared/config/app.config';
-import { TOKEN_KEY } from '@shared/types/constants/auth.constant';
+import { TOKEN_KEY } from '@shared/config/auth.config';
 
 import { getItem } from '@client/utils/local-storage.util';
 

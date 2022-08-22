@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <q-btn class="chat-icon" round color="primary" icon="chat" />
+  <!--  <q-btn class="chat-icon" round color="primary" icon="chat" />-->
 </template>
 
 <script setup lang="ts"></script>
@@ -10,5 +10,10 @@
   position: absolute;
   bottom: 5%;
   left: 4%;
+}
+
+.footer-style {
+  color: white;
+  height: 100px;
 }
 </style>

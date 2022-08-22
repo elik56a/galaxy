@@ -1,8 +1,5 @@
-// import { i18n } from '../../client/src/boot/i18n';
-//
-// @ts-ignore
-// const { t } = i18n.global;
-//
+import { $t } from '../../client/src/boot/i18n';
+
 // export const required = (
 //   value: string | number | undefined,
 //   message: string = 'rules.required'
@@ -28,8 +25,8 @@
 //   translate('$vuetify.invalidNumber');
 
 const rules = {
-  required: (value: string | number | null) =>
-    !!value || 'Please enter a value',
+  required: (value: string | number | null) => !!value || $t('rules.required'),
+
   // validEmail,
   // digitsOnly,
   // validPassword,

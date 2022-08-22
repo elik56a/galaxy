@@ -12,7 +12,13 @@
   },
   "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+//    "prettier/prettier": "error",
     "no-unused-vars": "off",
     "no-console": "off",
     "func-names": "off",
