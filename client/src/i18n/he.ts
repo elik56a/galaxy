@@ -3,11 +3,11 @@ export default {
     email: 'אימייל',
     userName: 'שם משתמש',
     password: 'סיסמא',
-    backtostart: 'חזרה למסך כניסה',
+    goToLoginPage: 'חזרה למסך כניסה',
     start: 'התחל',
     send: 'שליחה',
     save: 'שמירה',
-    chooseoption: 'בחר אפשרות',
+    chooseOption: 'בחר אפשרות',
   },
   login: {
     login: 'התחבר',
@@ -15,10 +15,10 @@ export default {
     keepMeLoggedIn: 'השאר אותי מחובר (24 שעות)',
     niceToSeeYou: 'היי, טוב לראות אותך!',
   },
-  choose_role: {
-    hiwhatsapp: 'היי אוריה, מה קורה?',
-    chooseroletext: 'מאיזה תפקיד תבחר להתחבר הפעם?',
-    chooserole: 'בחר תפקיד',
+  chooseRole: {
+    hiWhatsapp: 'היי אוריה, מה קורה?',
+    infoText: 'מאיזה תפקיד תבחר להתחבר הפעם?',
+    choose: 'בחר תפקיד',
   },
   resetPassword: {
     resetPassword: 'איפוס סיסמה',
@@ -27,12 +27,12 @@ export default {
     onMail: 'במייל',
     onSms: 'בסמס',
   },
-  change_password: {
-    changepassword: 'החלפת סיסמה',
-    changepasswordtext: 'נשלחה אליך סיסמה חדשה לטלפון שמסתיים ב- 308',
-    tmppassword: 'הכנס סיסמה זמנית',
-    newpassword: 'הכנס סיסמה חדשה',
-    newpassworda: 'חזור על סיסמה חדשה',
+  changePassword: {
+    change: 'החלפת סיסמה',
+    infoText: 'נשלחה אליך סיסמה חדשה לטלפון שמסתיים ב- 308',
+    tempPassword: 'הכנס סיסמה זמנית',
+    newPassword: 'הכנס סיסמה חדשה',
+    repeatNewPassword: 'חזור על סיסמה חדשה',
   },
   passwordSuccess: {
     passwordSuccessText: 'סיסמתך הוחלפה בהצלחה!',

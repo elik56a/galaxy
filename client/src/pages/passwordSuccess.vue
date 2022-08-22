@@ -14,7 +14,7 @@
               <div class="text-h6 q-mb-lg text-center q-pt-xl">
                 {{ $t('passwordSuccess.passwordSuccessText') }}
               </div>
-              <q-separator/>
+              <q-separator />
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
@@ -31,7 +31,7 @@
                 @click="router.push(PAGES_ROUTES.LOGIN)"
                 flat
                 color="primary"
-                :label="$t('general.backtostart')"
+                :label="$t('general.goToLoginPage')"
               />
             </q-card-section>
           </q-card>
@@ -49,7 +49,7 @@
       <q-footer style="height: 25px">
         <q-toolbar style="background-color: #4b0082">
           <q-toolbar-title class="text-center text-subtitle1 footer-style"
-          >019Mobile By Oriya
+            >019Mobile By Oriya
           </q-toolbar-title>
         </q-toolbar>
       </q-footer>
@@ -58,12 +58,11 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 
-import {PAGES_ROUTES} from '@client/config';
-import {useRouter} from "vue-router";
+import { PAGES_ROUTES } from '@client/config';
 
 const router = useRouter();
-
 </script>
 
 <style>

@@ -15,7 +15,10 @@
                 {{ $t('resetPassword.resetPassword') }}
               </div>
               <q-separator />
-              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg q-pt-xl">
+              <q-form
+                ref="resetPasswordForm"
+                class="q-gutter-md q-mt-lg q-pt-xl"
+              >
                 <q-select
                   outlined
                   clearable
@@ -23,7 +26,7 @@
                   emit-value
                   v-model="form.selectedResetOption"
                   :options="RESET_PASSWORD_SEND_OPTIONS"
-                  :label="$t('general.chooseoption')"
+                  :label="$t('general.chooseOption')"
                   :rules="[rules.required]"
                 />
                 <q-input
@@ -36,7 +39,9 @@
                 />
                 <div class="text-left" v-if="!!form.selectedResetOption">
                   {{ $t('resetPassword.tempPassWillSent') }}
-                  {{ $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`) }}
+                  {{
+                    $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`)
+                  }}
                 </div>
               </q-form>
             </q-card-section>
@@ -55,7 +60,7 @@
                 @click="router.push(PAGES_ROUTES.LOGIN)"
                 flat
                 color="primary"
-                :label="$t('general.backtostart')"
+                :label="$t('general.goToLoginPage')"
               />
             </q-card-section>
           </q-card>
