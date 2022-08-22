@@ -1,5 +1,10 @@
 import { IUser } from '@shared/types/entities/user.type';
-import { ILoginBody, IResetPasswordBody, IRoleBody, IChangePasswordBody } from '@shared/types';
+import {
+  ILoginBody,
+  IResetPasswordBody,
+  IRoleBody,
+  IChangePasswordBody,
+} from '@shared/types';
 
 interface IAuthStoreState {
   token: string | null;

@@ -10,12 +10,11 @@
         />
         <div>
           <q-card flat class="vertical-middle q-pt-xl">
-            <q-card-section
-            >
+            <q-card-section>
               <div class="text-h6 q-mb-lg text-center q-pt-xl">
                 {{ $t('login.niceToSeeYou') }}
               </div>
-              <q-separator/>
+              <q-separator />
               <q-form ref="loginForm" class="q-gutter-md q-mt-lg">
                 <q-input
                   outlined
@@ -50,7 +49,12 @@
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
-              <q-btn @click="forgetPassword" flat color="primary" :label="$t('login.forgetPassword')"/>
+              <q-btn
+                @click="forgetPassword"
+                flat
+                color="primary"
+                :label="$t('login.forgetPassword')"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -64,12 +68,11 @@
         />
       </div>
 
-      <q-footer style="height:25px;">
-        <q-toolbar style="background-color: #4B0082">
+      <q-footer style="height: 25px">
+        <q-toolbar style="background-color: #4b0082">
           <q-toolbar-title class="text-center text-subtitle1 footer-style"
-          >019Mobile By Oriya
-          </q-toolbar-title
-          >
+            >019Mobile By Oriya
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </q-page>
@@ -77,10 +80,10 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from 'vue';
+import { reactive, ref } from 'vue';
 
 import rules from '@shared/utils/form-validation.util';
-import {ILoginBody} from '@shared/types/routes/auth-route.type';
+import { ILoginBody } from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
 
