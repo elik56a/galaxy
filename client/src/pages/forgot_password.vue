@@ -6,19 +6,16 @@
           src="../assets/app-logo.png"
           class="q-ma-lg"
           height="40px"
-          width="70px"
+          width="80px"
         />
         <div>
-          <q-card flat class="vertical-middle">
-            <q-card-section
-              ><br /><br /><br /><br />
-              <div class="text-h6 q-mb-lg text-center">
+          <q-card flat class="vertical-middle q-pt-xl">
+            <q-card-section>
+              <div class="text-h6 q-mb-lg text-center q-pt-xl">
                 {{ $t('resetPassword.resetPassword') }}
               </div>
               <q-separator />
-              <br />
-              <br />
-              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg">
+              <q-form ref="resetPasswordForm" class="q-gutter-md q-mt-lg q-pt-xl">
                 <q-select
                   outlined
                   clearable
@@ -29,11 +26,17 @@
                   :label="$t('general.chooseoption')"
                   :rules="[rules.required]"
                 />
+                <q-input
+                  outlined
+                  clearable
+                  v-model="form.userName"
+                  type="userName"
+                  :label="$t('general.userName')"
+                  :rules="[rules.required]"
+                />
                 <div class="text-left" v-if="!!form.selectedResetOption">
                   {{ $t('resetPassword.tempPassWillSent') }}
-                  {{
-                    $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`)
-                  }}
+                  {{ $t(`resetPassword.${isSmsSelected ? 'onSms' : 'onMail'}`) }}
                 </div>
               </q-form>
             </q-card-section>
@@ -63,15 +66,13 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/welcome_page.png"
+          src="../assets/forgot_password.png"
         />
       </div>
 
       <q-footer style="height: 25px">
         <q-toolbar style="background-color: #4b0082">
-          <q-toolbar-title
-            class="text-center text-subtitle1"
-            style="color: white; height: 100px"
+          <q-toolbar-title class="text-center text-subtitle1 footer-style"
             >019Mobile By Oriya
           </q-toolbar-title>
         </q-toolbar>
