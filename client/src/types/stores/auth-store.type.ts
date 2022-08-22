@@ -1,5 +1,5 @@
 import { IUser } from '@shared/types/entities/user.type';
-import { ILoginBody, IResetPasswordBody } from '@shared/types';
+import { ILoginBody, IResetPasswordBody, IRoleBody, IChangePasswordBody } from '@shared/types';
 
 interface IAuthStoreState {
   token: string | null;
@@ -14,9 +14,9 @@ export interface IAuthStore {
   actions: {
     login: (form: ILoginBody) => Promise<void>;
     back_to_start: () => Promise<void>;
-    loginRole: () => Promise<void>;
+    loginRole: (form: IRoleBody) => Promise<void>;
     resetPassword: (form: IResetPasswordBody) => Promise<void>;
     forget_password: () => Promise<void>;
-    savepassword: () => Promise<void>;
+    savePassword: (form: IChangePasswordBody) => Promise<void>;
   };
 }

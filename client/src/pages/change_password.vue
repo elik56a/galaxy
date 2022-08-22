@@ -90,10 +90,9 @@
 import {reactive, ref} from 'vue';
 
 import rules from '@shared/utils/form-validation.util';
-import {ILoginBody} from '@shared/types/routes/auth-route.type';
+import {IChangePasswordBody} from '@shared/types/routes/auth-route.type';
 
 import useAuthStore from '@client/stores/auth.store';
-import {LOGGER_OPTIONS} from '../../../server/src/config/external-plugins.config';
 import {PAGES_ROUTES} from '@client/config';
 import {useRouter} from "vue-router";
 
@@ -101,13 +100,13 @@ const router = useRouter();
 const authStore = useAuthStore();
 const changepasswordForm = ref();
 const form = reactive(<IChangePasswordBody>{
-  passwords: false
+  password: '',
 });
 
 const savePassword = async (): Promise<void> => {
   const isValid = await changepasswordForm.value.validate();
   if (!isValid) return;
-  return authStore.savepassword(form);
+  return authStore.savePassword(form);
 };
 
 </script>

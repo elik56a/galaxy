@@ -13,12 +13,20 @@ export interface ILoginBody {
   password: string;
 }
 
+export interface IChangePasswordBody {
+  password: string;
+}
+
 export interface IRoleBody {
   role: string;
 }
 
 export interface IResetPasswordBody {
   selectedResetOption: ResetPasswordSendOptions;
+}
+
+export interface IChangePasswordBody {
+  password: string;
 }
 
 export interface IReplayLogin {

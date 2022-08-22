@@ -34,6 +34,9 @@ export default {
     newpassword: 'הכנס סיסמה חדשה',
     newpassworda: 'חזור על סיסמה חדשה',
   },
+  passwordSuccess: {
+    passwordSuccessText: 'סיסמתך הוחלפה בהצלחה!',
+  },
   rules: {
     required: 'שדה חובה',
   },

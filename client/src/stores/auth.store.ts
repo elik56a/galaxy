@@ -53,7 +53,7 @@ const authStore: IAuthStore = {
     async resetPassword() {
       await router.push(PAGES_ROUTES.CHANGE_PASSWORD);
     },
-    async savepassword() {
+    async savePassword() {
       await router.push(PAGES_ROUTES.PASSWORD_SUCCESS);
     },
   },

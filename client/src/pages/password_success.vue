@@ -12,31 +12,18 @@
           <q-card flat class="vertical-middle q-pt-xl">
             <q-card-section>
               <div class="text-h6 q-mb-lg text-center q-pt-xl">
-                {{ $t('choose_role.hiwhatsapp') }}
+                {{ $t('passwordSuccess.passwordSuccessText') }}
               </div>
               <q-separator/>
-              <div class="text-left q-pt-xl">
-                {{ $t('choose_role.chooseroletext') }}
-              </div>
-              <q-form ref="roleForm" class="q-gutter-md q-mt-lg">
-                <q-select
-                  outlined
-                  clearable
-                  v-model="form.role"
-                  :options="['מחלקת בקרה- מנהל NOC', 'מחלקת פיתוח- DBA']"
-                  :label="$t('choose_role.chooserole')"
-                  :rules="[rules.required]"
-                />
-              </q-form>
             </q-card-section>
             <q-card-actions class="q-px-md">
               <q-btn
-                @click="loginRole"
+                @click="router.push(PAGES_ROUTES.HOME)"
                 unelevated
                 color="primary"
                 size="lg"
                 class="full-width"
-                :label="$t('general.start')"
+                :label="$t('login.login')"
               />
             </q-card-actions>
             <q-card-section class="q-pt-none">
@@ -55,16 +42,15 @@
           fit="fill"
           height="100vh"
           width="100%"
-          src="../assets/choose_role_page.png"
+          src="../assets/password-success.png"
         />
       </div>
 
-      <q-footer style="height:25px;">
-        <q-toolbar style="background-color: #4B0082">
+      <q-footer style="height: 25px">
+        <q-toolbar style="background-color: #4b0082">
           <q-toolbar-title class="text-center text-subtitle1 footer-style"
           >019Mobile By Oriya
-          </q-toolbar-title
-          >
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </q-page>
@@ -72,27 +58,12 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from 'vue';
 
-import rules from '@shared/utils/form-validation.util';
-import {IRoleBody} from '@shared/types/routes/auth-route.type';
-
-import useAuthStore from '@client/stores/auth.store';
-import {useRouter} from "vue-router";
 import {PAGES_ROUTES} from '@client/config';
+import {useRouter} from "vue-router";
 
 const router = useRouter();
-const authStore = useAuthStore();
-const roleForm = ref();
-const form = reactive(<IRoleBody>{
-  role: '',
-});
 
-const loginRole = async (): Promise<void> => {
-  const isValid = await roleForm.value.validate();
-  if (!isValid) return;
-  return authStore.loginRole(form);
-};
 </script>
 
 <style>
